@@ -1,0 +1,30 @@
+
+body { background-color: #5a5a6e; color: #fff; }
+#chartdiv {
+  width: 90%;
+  height: 400px;
+}
+
+/*
+body {
+    color: #404040;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+  }
+  */
+
+  
+  h1 {
+    font-size: 1.0em;
+    font-weight: 100;
+
+  }
+  
+  output {
+    font-size: 1em;
+    padding: .2em;
+  }
+
