@@ -1,20 +1,7 @@
-<!-- Styles -->
-<style>
-#chartdiv {
-  width: 100%;
-  height: 500px;
-}
 
-</style>
-
-<!-- Resources -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 <!-- Chart code -->
-<script>
+
 am4core.ready(function() {
 
 // Themes begin
@@ -114,7 +101,4 @@ setInterval(function() {
 }, 2000);
 
 }); // end am4core.ready()
-</script>
 
-<!-- HTML -->
-<div id="chartdiv"></div>
