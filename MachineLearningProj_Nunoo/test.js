@@ -1,15 +1,16 @@
 let value1 = 40;
-let value2 = calc();
+let value2 = Math.round(calc()*10)/10;
 
 function updatechart() {
     let unemployment = +$("#unemployment").val();
     let interest = +$("#interest").val();
     let inflation = +$("#inflation").val();
     let housing = +$("#housing").val();
-    value2 = calc(unemployment, interest, inflation, housing);
+    let earnings = +$("#earnings").val();
+    value2 = calc(unemployment, interest, inflation, housing, earnings);
 }
-function calc(unemployment, interest, inflation, housing) {
-    return (unemployment/4 + interest/4 + inflation/4 + housing/4)
+function calc(unemployment, interest, inflation, housing, earnings) {
+    return (unemployment / 5 + interest / 5 + inflation / 5 + (-housing / 5) + earnings / 5)
 }
 
 am4core.ready(function () {
@@ -138,23 +139,5 @@ am4core.ready(function () {
     label2.background.stroke = chart.colors.getIndex(3);
     label2.fill = chart.colors.getIndex(3);
     label2.text = "0";
-    /*
-        var $element = $('input[type="range"]');
-        var $output = $('output');
-    
-        function updateOutput(el, val) {
-            el.textContent = val;
-        }
-    
-        $element
-            .rangeslider({
-                polyfill: false,
-                onInit: function () {
-                    updateOutput($output[0], this.value);
-                }
-            })
-            .on('input', function () {
-                updateOutput($output[0], this.value);
-            }); */
 
 }); 
