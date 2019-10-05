@@ -1,5 +1,6 @@
 let value1 = 40;
-let value2 = Math.round(calc()*10)/10;
+let value2 = Math.round(calc() * 10) / 10;
+
 
 function updatechart() {
     let unemployment = +$("#unemployment").val();
@@ -10,7 +11,7 @@ function updatechart() {
     value2 = calc(unemployment, interest, inflation, housing, earnings);
 }
 function calc(unemployment, interest, inflation, housing, earnings) {
-    return (unemployment / 5 + interest / 5 + inflation / 5 + (-housing / 5) + earnings / 5)
+    return ((unemployment / 5) + interest / 5 + inflation / 5 + (-housing / 5) + earnings / 5)
 }
 
 am4core.ready(function () {
@@ -139,5 +140,6 @@ am4core.ready(function () {
     label2.background.stroke = chart.colors.getIndex(3);
     label2.fill = chart.colors.getIndex(3);
     label2.text = "0";
+
 
 }); 
