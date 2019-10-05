@@ -2,35 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="test.css">
+    <div id="title">
+        <h1> What is the chance of a Recession? </h1>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="test.css">
 </head>
 
 <body>
-
-    <div id="chartdiv"></div>>
-    <span>Unemployment Rate</span>
+        <div id="chartdiv"></div>>
+        <span>Unemployment Rate</span>
         <input id="unemployment" type="range" data-orientation="horizontal" onchange="updatechart()">
-    <span>Interest Rate</span>
+        <span>Interest Rate</span>
         <input id="interest" type="range" data-orientation="horizontal" onchange="updatechart()">
-    <span>Inflation Rate</span>
+        <span>Inflation Rate</span>
         <input id="inflation" type="range" data-orientation="horizontal" onchange="updatechart()">
-    <span>Housing Starts Rate</span>
+        <span>Housing Starts</span>
         <input id="housing" type="range" data-orientation="horizontal" onchange="updatechart()">
-    <output></output>
+        <span>Earnings Change</span>
+        <input id="earnings" type="range" data-orientation="horizontal" onchange="updatechart()">
+        <output></output>
 
-    <!-- Resources -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://www.amcharts.com/lib/4/core.js"></script>
-    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
-    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+        <!-- Resources -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://www.amcharts.com/lib/4/core.js"></script>
+        <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
+        <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
 
-    <script src="test.js"></script>
+        <script src="test.js"></script>
 
 </body>
 
