@@ -8,7 +8,6 @@ from flask_pymongo import PyMongo
 import scrape_stock
 import hashtag
 import multisite_scraping
-import MLmodel
 
 import os
 
@@ -46,14 +45,13 @@ def scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0], eco_scrape_list=prediction)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
 
 @app.route("/multiscrape")
 def multi_scrape():
     global ml_data
     global data
     global stock_data
-    global prediction
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -68,8 +66,6 @@ def multi_scrape():
     ml_data = multisite_scraping.scrape_housesales()
     ml_data = multisite_scraping.scrape_housestarts()
     ml_data = multisite_scraping.scrape_earnings()
-    prediction = MLmodel.answer3()
-
     
     print("Hey Greg...")
     print(ml_data[0])
