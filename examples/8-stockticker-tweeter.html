@@ -215,8 +215,59 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-12 d-flex align-items-stretch">
+            <div class="card">
+              <div class="card-header text-center">
+                <h3 class="card-title" style="text-align:center;"><strong>Current Economic Indicators</strong></h3>
+              </div>
+              <div class="card-body">
+                <p style="text-align:center;"><a class="btn btn-primary btn-md" href="/multiscrape"
+                    role="button">update</a></p>
+                <p>{{ eco_scrape_dict.dow }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['13wk'] }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['5yr'] }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['10yr'] }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.fed }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.unemployment }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.gold }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.cpi }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.inflation }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict.gdp }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['home sales'] }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['Housing starts'] }}</p>
+                <hr>
+                <p>{{ eco_scrape_dict['earnings'] }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 d-flex align-items-stretch">
+            <div class="card ">
+              <div class="card-header text-center">
+                <h3 class="card-title" id="stock" style="text-align:center;"><strong>Stock Market Tickers</strong>
+                </h3>
+                <h5 class="card-category" style="text-align:center;">Current Market Update</h5>
+              </div>
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
+  </div>
   </div>
 
   <!--   Core JS Files   -->

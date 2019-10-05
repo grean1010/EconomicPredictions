@@ -61,7 +61,7 @@ def scrape_bonds():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_bonds()
+#scrape_bonds()
 ########################################################################################################################################
 # Scraping function to get current federal interest rate info
 def scrape_fedrate():
@@ -94,7 +94,7 @@ def scrape_fedrate():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_fedrate()
+#scrape_fedrate()
 ########################################################################################################################################
 # Scraping function to get current federal unemployment rate
 def scrape_unemployment():
@@ -126,7 +126,7 @@ def scrape_unemployment():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_unemployment()
+#scrape_unemployment()
 ########################################################################################################################################
 # Scraping function to get current gold price in US dollars
 def scrape_gold():
@@ -154,7 +154,7 @@ def scrape_gold():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_gold()
+#scrape_gold()
 ########################################################################################################################################
 # Scraping function to get current consumer pricing info
 def scrape_cpi():
@@ -184,7 +184,7 @@ def scrape_cpi():
     # Return results
     return eco_scrape_dict, eco_scrape_list
     
-scrape_cpi()
+#scrape_cpi()
 ########################################################################################################################################
 # Scraping function to get current federal inflation rate
 def scrape_inflation():
@@ -214,7 +214,7 @@ def scrape_inflation():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_inflation()
+#scrape_inflation()
 ########################################################################################################################################
 # Scraping function to get current GDP info
 def scrape_gdp():
@@ -243,7 +243,7 @@ def scrape_gdp():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_gdp()
+#scrape_gdp()
 ########################################################################################################################################
 # Scraping function to get median house sale pricing info
 def scrape_housesales():
@@ -271,7 +271,7 @@ def scrape_housesales():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_housesales()
+#scrape_housesales()
 ########################################################################################################################################
 # Scraping function to get current monthly number of housing starts 
 def scrape_housestarts():
@@ -301,7 +301,7 @@ def scrape_housestarts():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_housestarts()
+#scrape_housestarts()
 ########################################################################################################################################
 # Scraping function to get current earnings info
 def scrape_earnings():
@@ -334,7 +334,7 @@ def scrape_earnings():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-scrape_earnings()
+#scrape_earnings()
 
-print(eco_scrape_list)
-print(eco_scrape_dict)
+#print(eco_scrape_list)
+#print(eco_scrape_dict)

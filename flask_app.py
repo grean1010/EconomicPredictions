@@ -7,6 +7,8 @@ from flask_pymongo import PyMongo
 # Import the python scraping files (scrape_stock.py, hashtag.py)
 import scrape_stock
 import hashtag
+import multisite_scraping
+import MLmodel
 
 import os
 
@@ -16,6 +18,7 @@ print(__name__)
 app = Flask(__name__, template_folder='examples')
 app.secret_key = os.urandom(24)
 stock_data = {}
+ml_data = {}
 data = []
 
 # Set route to query mongoDB and make an HTML template
@@ -43,8 +46,42 @@ def scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0], eco_scrape_list=prediction)
 
+@app.route("/multiscrape")
+def multi_scrape():
+    global ml_data
+    global data
+    global stock_data
+    global prediction
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # stock scraping function and store in session
+    ml_data = multisite_scraping.scrape_bonds()
+    ml_data = multisite_scraping.scrape_fedrate()
+    ml_data = multisite_scraping.scrape_unemployment()
+    ml_data = multisite_scraping.scrape_gold()
+    ml_data = multisite_scraping.scrape_cpi()
+    ml_data = multisite_scraping.scrape_inflation()
+    ml_data = multisite_scraping.scrape_gdp()
+    ml_data = multisite_scraping.scrape_housesales()
+    ml_data = multisite_scraping.scrape_housestarts()
+    ml_data = multisite_scraping.scrape_earnings()
+    prediction = MLmodel.answer3()
+
+    
+    print("Hey Greg...")
+    print(ml_data[0])
+    print(ml_data[1])
+    # retrieve the value of data from session
+    
+
+    # update mongo database
+    # stock_info.update({}, stock_data, upsert=True)
+
+    # redirect back to home page
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
     # Create a route called /scrape
 @app.route("/scrapetweet")
 def scrapetweet():
@@ -64,7 +101,7 @@ def scrapetweet():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
 
 @app.route("/map")
 def unemploymentMap():
@@ -105,9 +142,10 @@ def stocktweeter():
     # stock_info = mongo.db.stock_info.find_one()
     print(stock_data)
     print(data)
+    print(ml_data)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
 
 #if __name__ == "__main__":
 print("1...")

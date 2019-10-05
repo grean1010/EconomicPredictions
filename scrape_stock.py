@@ -16,7 +16,7 @@ def init_browser():
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
     return Browser('chrome', **executable_path, headless=True)
 
-# Create a dictionary to store all scraped data
+# Create a dictionary to store all Fd data
 stock_info = {}
 
 # Scraping function that exectutes the scraping of targeted webpages
