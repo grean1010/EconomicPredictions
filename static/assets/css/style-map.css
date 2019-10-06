@@ -3,7 +3,25 @@ body {
   margin: 0;
 }
 
-#map,
+#map-1,
+body,
+html {
+  height: 100%;
+}
+
+#map-2,
+body,
+html {
+  height: 100%;
+}
+
+#map-3,
+body,
+html {
+  height: 100%;
+}
+
+#map-4,
 body,
 html {
   height: 100%;
