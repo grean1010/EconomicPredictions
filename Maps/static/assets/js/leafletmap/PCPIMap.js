@@ -27,7 +27,7 @@ centerLoc = [39.82, -98.58];
 
 // Function that will determine the color of a county based on its unemployment rate
 
-function getColor(d) {
+function getPCPIColor(d) {
   return d > 15   ? '#006837' :
          d > 10   ? '#1a9850' :
          d > 5    ? '#66bd63' :
@@ -79,7 +79,7 @@ d3.json(stateLink).then(function(stateData){
 var layers = [];
 var descrs = [];
 
-function yearLayers(year,countyLink,countyLayer){
+function PCPILayers(year,countyLink,countyLayer){
 
   // Pull in the county geojson file
   d3.json(countyLink).then(function(countyData){
@@ -95,7 +95,7 @@ function yearLayers(year,countyLink,countyLayer){
         return {
           color: "white",
           // Call the chooseColor function to decide which color to color each county (color based on unemployment rate)
-          fillColor: getColor(feature.properties.PCPI_PctChange),
+          fillColor: getPCPIColor(feature.properties.PCPI_PctChange),
            fillOpacity: 0.75,
           weight: 1
           }
@@ -131,69 +131,69 @@ function yearLayers(year,countyLink,countyLayer){
 
 }
 
-var countyLayer2002 = new L.LayerGroup();
-yearLayers(2002,countyLink2002,countyLayer2002);
-layers.push(countyLayer2002);
+var PCPILayer2002 = new L.LayerGroup();
+PCPILayers(2002,countyLink2002,PCPILayer2002);
+layers.push(PCPILayer2002);
 descrs.push(2002);
-var countyLayer2003 = new L.LayerGroup();
-yearLayers(2003,countyLink2003,countyLayer2003);
-layers.push(countyLayer2003);
+var PCPILayer2003 = new L.LayerGroup();
+PCPILayers(2003,countyLink2003,PCPILayer2003);
+layers.push(PCPILayer2003);
 descrs.push(2003);
-var countyLayer2004 = new L.LayerGroup();
-yearLayers(2004,countyLink2004,countyLayer2004);
-layers.push(countyLayer2004);
+var PCPILayer2004 = new L.LayerGroup();
+PCPILayers(2004,countyLink2004,PCPILayer2004);
+layers.push(PCPILayer2004);
 descrs.push(2004);
-var countyLayer2005 = new L.LayerGroup();
-yearLayers(2005,countyLink2005,countyLayer2005);
-layers.push(countyLayer2005);
+var PCPILayer2005 = new L.LayerGroup();
+PCPILayers(2005,countyLink2005,PCPILayer2005);
+layers.push(PCPILayer2005);
 descrs.push(2005);
-var countyLayer2006 = new L.LayerGroup();
-yearLayers(2006,countyLink2006,countyLayer2006);
-layers.push(countyLayer2006);
+var PCPILayer2006 = new L.LayerGroup();
+PCPILayers(2006,countyLink2006,PCPILayer2006);
+layers.push(PCPILayer2006);
 descrs.push(2006);
-var countyLayer2007 = new L.LayerGroup();
-yearLayers(2007,countyLink2007,countyLayer2007);
-layers.push(countyLayer2007);
+var PCPILayer2007 = new L.LayerGroup();
+PCPILayers(2007,countyLink2007,PCPILayer2007);
+layers.push(PCPILayer2007);
 descrs.push(2007);
-var countyLayer2008 = new L.LayerGroup();
-yearLayers(2008,countyLink2008,countyLayer2008);
-layers.push(countyLayer2008);
+var PCPILayer2008 = new L.LayerGroup();
+PCPILayers(2008,countyLink2008,PCPILayer2008);
+layers.push(PCPILayer2008);
 descrs.push(2008);
-var countyLayer2009 = new L.LayerGroup();
-yearLayers(2009,countyLink2009,countyLayer2009);
-layers.push(countyLayer2009);
+var PCPILayer2009 = new L.LayerGroup();
+PCPILayers(2009,countyLink2009,PCPILayer2009);
+layers.push(PCPILayer2009);
 descrs.push(2009);
-var countyLayer2010 = new L.LayerGroup();
-yearLayers(2010,countyLink2010,countyLayer2010);
-layers.push(countyLayer2010);
+var PCPILayer2010 = new L.LayerGroup();
+PCPILayers(2010,countyLink2010,PCPILayer2010);
+layers.push(PCPILayer2010);
 descrs.push(2010);
-var countyLayer2011 = new L.LayerGroup();
-yearLayers(2011,countyLink2011,countyLayer2011);
-layers.push(countyLayer2011);
+var PCPILayer2011 = new L.LayerGroup();
+PCPILayers(2011,countyLink2011,PCPILayer2011);
+layers.push(PCPILayer2011);
 descrs.push(2011);
-var countyLayer2012 = new L.LayerGroup();
-yearLayers(2012,countyLink2012,countyLayer2012);
-layers.push(countyLayer2012);
+var PCPILayer2012 = new L.LayerGroup();
+PCPILayers(2012,countyLink2012,PCPILayer2012);
+layers.push(PCPILayer2012);
 descrs.push(2012);
-var countyLayer2013 = new L.LayerGroup();
-yearLayers(2013,countyLink2013,countyLayer2013);
-layers.push(countyLayer2013);
+var PCPILayer2013 = new L.LayerGroup();
+PCPILayers(2013,countyLink2013,PCPILayer2013);
+layers.push(PCPILayer2013);
 descrs.push(2013);
-var countyLayer2014 = new L.LayerGroup();
-yearLayers(2014,countyLink2014,countyLayer2014);
-layers.push(countyLayer2014);
+var PCPILayer2014 = new L.LayerGroup();
+PCPILayers(2014,countyLink2014,PCPILayer2014);
+layers.push(PCPILayer2014);
 descrs.push(2014);
-var countyLayer2015 = new L.LayerGroup();
-yearLayers(2015,countyLink2015,countyLayer2015);
-layers.push(countyLayer2015);
+var PCPILayer2015 = new L.LayerGroup();
+PCPILayers(2015,countyLink2015,PCPILayer2015);
+layers.push(PCPILayer2015);
 descrs.push(2015);
-var countyLayer2016 = new L.LayerGroup();
-yearLayers(2016,countyLink2016,countyLayer2016);
-layers.push(countyLayer2016);
+var PCPILayer2016 = new L.LayerGroup();
+PCPILayers(2016,countyLink2016,PCPILayer2016);
+layers.push(PCPILayer2016);
 descrs.push(2016);
-var countyLayer2017 = new L.LayerGroup();
-yearLayers(2017,countyLink2017,countyLayer2017);
-layers.push(countyLayer2017);
+var PCPILayer2017 = new L.LayerGroup();
+PCPILayers(2017,countyLink2017,PCPILayer2017);
+layers.push(PCPILayer2017);
 descrs.push(2017);
 
 
@@ -210,7 +210,7 @@ var overlayMaps = {
 var myMap = L.map("map", {
   center: centerLoc,
   zoom: 4,
-  layers: [usmap,countyLayer2002]
+  layers: [usmap,PCPILayer2002]
 });
 
 
@@ -230,7 +230,7 @@ legend.onAdd = function (myMap) {
   // loop through our density intervals and generate a label with a colored square for each interval
   for (var i = 0; i < grades.length; i++) {
     div.innerHTML +=
-      '<i style="background:' + getColor(grades[i]) + '"></i>' + labels[i] + '<p>';
+      '<i style="background:' + getPCPIColor(grades[i]) + '"></i>' + labels[i] + '<p>';
   } 
   return div;
 };

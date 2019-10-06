@@ -14,7 +14,7 @@ centerLoc = [39.82, -98.58];
 
 // Function that will determine the color of a county based on its unemployment rate
 
-function getColor(d) {
+function getGDPColor(d) {
   return d > 15   ? '#006837' :
          d > 10   ? '#1a9850' :
          d > 5    ? '#66bd63' :
@@ -66,7 +66,7 @@ d3.json(stateLink).then(function(stateData){
 var layers = [];
 var descrs = [];
 
-function yearLayers(year,countyLink,countyLayer){
+function GDPLayers(year,countyLink,countyLayer){
 
   // Pull in the county geojson file
   d3.json(countyLink).then(function(countyData){
@@ -86,7 +86,7 @@ function yearLayers(year,countyLink,countyLayer){
         return {
           color: "white",
           // Call the chooseColor function to decide which color to color each county (color based on unemployment rate)
-          fillColor: getColor(feature.properties[var2get]),
+          fillColor: getGDPColor(feature.properties[var2get]),
            fillOpacity: 0.75,
           weight: 1
           }
@@ -123,17 +123,17 @@ function yearLayers(year,countyLink,countyLayer){
 
 }
 
-var countyLayer2013 = new L.LayerGroup();
-yearLayers(2013,countyLink2013,countyLayer2013);
-layers.push(countyLayer2013);
+var GDPLayer2013 = new L.LayerGroup();
+GDPLayers(2013,countyLink2013,GDPLayer2013);
+layers.push(GDPLayer2013);
 descrs.push(2013);
-var countyLayer2014 = new L.LayerGroup();
-yearLayers(2014,countyLink2014,countyLayer2014);
-layers.push(countyLayer2014);
+var GDPLayer2014 = new L.LayerGroup();
+GDPLayers(2014,countyLink2014,GDPLayer2014);
+layers.push(GDPLayer2014);
 descrs.push(2014);
-var countyLayer2015 = new L.LayerGroup();
-yearLayers(2015,countyLink2015,countyLayer2015);
-layers.push(countyLayer2015);
+var GDPLayer2015 = new L.LayerGroup();
+GDPLayers(2015,countyLink2015,GDPLayer2015);
+layers.push(GDPLayer2015);
 descrs.push(2015);
 
 // Create an overlayMaps object to hold the education layers
@@ -149,7 +149,7 @@ var overlayMaps = {
 var myMap = L.map("map", {
   center: centerLoc,
   zoom: 4,
-  layers: [usmap,countyLayer2013]
+  layers: [usmap,GDPLayer2013]
 });
 
 
@@ -217,7 +217,7 @@ newTopLayer(0);
 
 L.control.timelineSlider({
   timelineItems: descrs,
-  extraChangeMapParams: {greeting: "Slide to see change in Per-Capita Personal Income over time"}, 
+  extraChangeMapParams: {greeting: "Slide to see change in County GDP over time"}, 
   changeMap: switchYear,
   position: 'bottomleft' })
 .addTo(myMap);

@@ -14,20 +14,7 @@ stateLink = "/static/assets/geojson/gz_2010_us_040_00_500k.json";
 centerLoc = [39.82, -98.58];
 
 
-// Function that will determine the color of a county based on its unemployment rate
-function getColor(d) {
-  return d > 45   ? '#800026' :
-         d > 40   ? '#bd0026' :
-         d > 30   ? '#e31a1c' :
-         d > 25   ? '#fc4e2a' :
-         d > 20   ? '#fd8d3c' :
-         d > 15   ? '#feb24c' :
-         d > 10   ? '#fed976' :
-         d > 7    ? '#ffeda0' :
-         d > 3    ? '#ffffcc' :
-         '#gray' 
-}
-function getColor2(d) {
+function getEducColors(d) {
   return d > 45   ? '#543005' :
          d > 40   ? '#8c510a' :
          d > 30   ? '#bf812d' :
@@ -39,20 +26,6 @@ function getColor2(d) {
          d > 5    ? '#01665e' :
          d > 3    ? '#003c30' :
          "#gray"
-}
-
-function getColor3(d) {
-  return d > 45   ? '#a50026' :
-         d > 40   ? '#d73027' :
-         d > 30   ? '#f46d43' :
-         d > 25   ? '#fdae61' :
-         d > 20   ? '#fee08b' :
-         d > 15   ? '#d9ef8b' :
-         d > 10   ? '#a6d96a' :
-         d > 7    ? '#66bd63' :
-         d > 5    ? '#1a9850' :
-         d > 3    ? '#006837' :
-         "#lightgray"
 }
 
 // Create basic US map
@@ -89,13 +62,13 @@ d3.json(stateLink).then(function(stateData){
 });
 
 // Add a layer for the county boundaries
-var countyLayer1970 = new L.LayerGroup();
-var countyLayer1980 = new L.LayerGroup();
-var countyLayer1990 = new L.LayerGroup();
-var countyLayer2000 = new L.LayerGroup();
-var countyLayer2013 = new L.LayerGroup();
+var GDPLayer1970 = new L.LayerGroup();
+var GDPLayer1980 = new L.LayerGroup();
+var GDPLayer1990 = new L.LayerGroup();
+var GDPLayer2000 = new L.LayerGroup();
+var GDPLayer2013 = new L.LayerGroup();
 
-function yearLayers(year,countyLink,countyLayer){
+function EducLayers(year,countyLink,countyLayer){
   
   // Pull in the county geojson file
   d3.json(countyLink).then(function(countyData){
@@ -111,7 +84,7 @@ function yearLayers(year,countyLink,countyLayer){
         return {
           color: "white",
           // Call the chooseColor function to decide which color to color each county (color based on unemployment rate)
-          fillColor: getColor2(feature.properties.GRAD),
+          fillColor: getEducColors(feature.properties.GRAD),
            fillOpacity: 0.75,
           weight: 1
           }
@@ -148,11 +121,11 @@ function yearLayers(year,countyLink,countyLayer){
 
 }
 
-yearLayers(1970,countyLink1970,countyLayer1970);
-yearLayers(1980,countyLink1980,countyLayer1980);
-yearLayers(1990,countyLink1990,countyLayer1990);
-yearLayers(2000,countyLink2000,countyLayer2000);
-yearLayers(2013,countyLink2013,countyLayer2013);
+EducLayers(1970,countyLink1970,educLayer1970);
+EducLayers(1980,countyLink1980,educLayer1980);
+EducLayers(1990,countyLink1990,educLayer1990);
+EducLayers(2000,countyLink2000,educLayer2000);
+EducLayers(2013,countyLink2013,educLayer2013);
 
 // Create an overlayMaps object to hold the education layers
 var baseMaps = {
@@ -167,7 +140,7 @@ var overlayMaps = {
 var myMap = L.map("map", {
   center: centerLoc,
   zoom: 4,
-  layers: [usmap,countyLayer1970]
+  layers: [usmap,educLayer1970]
 });
 
 
@@ -188,14 +161,14 @@ legend.onAdd = function (myMap) {
   // loop through our density intervals and generate a label with a colored square for each interval
   for (var i = 0; i < grades.length; i++) {
     div.innerHTML +=
-      '<i style="background:' + getColor2(grades[i] + 1) + '"></i> ' +
+      '<i style="background:' + getEducColors(grades[i] + 1) + '"></i> ' +
       grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<p>' : '+');
   }
   return div;
 };
 legend.addTo(myMap);
 
-var layers = [countyLayer1970,countyLayer1980,countyLayer1990,countyLayer2000,countyLayer2013];
+var layers = [educLayer1970,educLayer1980,educLayer1990,educLayer2000,educLayer2013];
 
 function switchYear( {value} ){
   
