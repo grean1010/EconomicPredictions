@@ -70,8 +70,26 @@
           </li>
           <li class="active">
             <a href="./map">
+              <i class="far fa-cogs"></i>
+              <p>Unemployment Map</p>
+            </a>
+          </li>
+          <li>
+            <a href="./educationmap">
+              <i class="far fa-university"></i>
+              <p>Education Map</p>
+            </a>
+          </li>
+          <li>
+            <a href="./gdpmap">
               <i class="far fa-map"></i>
-              <p>US Economic Health Maps (4)</p>
+              <p>GDP Growth Map</p>
+            </a>
+          </li>
+          <li>
+            <a href="./incomemap">
+              <i class="far fa-hand-holding-usd"></i>
+              <p>Income Per Capita Map</p>
             </a>
           </li>
           <li>
@@ -111,7 +129,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/aboutus">
+                <a class="nav-link" href="#">
                   <p>
                     Blog
                   </p>
@@ -119,7 +137,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/aboutus">
+                <a class="nav-link" href="#">
                   <p>
                     Presentation
                   </p>
@@ -146,7 +164,10 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="/">Dashboard</a>
                   <a class="dropdown-item" href="/indicators">States Economic Health</a>
-                  <a class="dropdown-item" href="/map">US Economic Health Maps</a>
+                  <a class="dropdown-item" href="/map">US Unemployment Map</a>
+                  <a class="dropdown-item" href="/educationmap">US Education Map</a>
+                  <a class="dropdown-item" href="/gdpmap">US GDP Map</a>
+                  <a class="dropdown-item" href="/incomemap">Income Per Capita Map</a>
                   <a class="dropdown-item" href="/stocktweeter">Stock Health Data</a>
                   <a class="dropdown-item" href="/gdp">Gross Domestic Product</a>
                 </div>
@@ -160,20 +181,13 @@
       </div>
       <div class="content">
         <div class="row d-flex justify-content-center">
-          <div class="col-md-11 ">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title" style="text-align:center; margin:0 auto">US Economic Health Maps by County</h3>
+                <h3 class="card-title" style="text-align:center; margin:0 auto">US Unemployment Map by County</h3>
               </div>
               <div class="card-body">
-                <h6 style="text-align:center">US Unemployment Health map by County</h6>
-                <div class="mb-4" id="#map-1" style="height:500px"></div>
-                <h6 style="text-align:center">US Unemployment Health map by County</h6>
-                <div class="mb-4" id="#map-2" style="height:500px"></div>
-                <h6 style="text-align:center">US Unemployment Health map by County</h6>
-                <div class="mb-4" id="#map-3" style="height:500px"></div>
-                <h6 style="text-align:center">US Unemployment Health map by County</h6>
-                <div class="mb-4" id="#map-4" style="height:500px"></div>
+                <div class="mb-4" id="map" style="height:700px"></div>
               </div>
             </div>
           </div>
@@ -200,10 +214,9 @@
   <!-- API key -->
   <script type="text/javascript" src="/static/assets/js/leafletmap/config.js"></script>
   <!-- JS  -->
-  <script type="text/javascript" src="/static/assets/js/leafletmap/EducMap.js"></script>
-  <script type="text/javascript" src="/static/assets/js/leafletmap/GDPMap.js"></script>
-  <script type="text/javascript" src="/static/assets/js/leafletmap/PCPIMap.js"></script>
   <script type="text/javascript" src="/static/assets/js/leafletmap/UnempMap.js"></script>
+
+
 </body>
 
 </html>

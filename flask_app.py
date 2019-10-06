@@ -32,6 +32,8 @@ def home():
 @app.route("/scrapestock")
 def scrape():
     global stock_data
+    global data
+    global stock_data
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -45,7 +47,7 @@ def scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
 
 @app.route("/multiscrape")
 def multi_scrape():
@@ -66,10 +68,9 @@ def multi_scrape():
     ml_data = multisite_scraping.scrape_housesales()
     ml_data = multisite_scraping.scrape_housestarts()
     ml_data = multisite_scraping.scrape_earnings()
+    ml_data = ml_data[0]
     
-    print("Hey Greg...")
-    print(ml_data[0])
-    print(ml_data[1])
+
     # retrieve the value of data from session
     
 
@@ -77,11 +78,13 @@ def multi_scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
     # Create a route called /scrape
 @app.route("/scrapetweet")
 def scrapetweet():
+    global ml_data
     global data
+    global stock_data
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -97,7 +100,7 @@ def scrapetweet():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
 
 @app.route("/map")
 def unemploymentMap():
@@ -106,6 +109,30 @@ def unemploymentMap():
 
     # redirect back to home page
     return render_template("2-unemployment-map.html")   
+
+@app.route("/gdpmap")
+def gdpMap():
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # redirect back to home page
+    return render_template("4-gdp-map.html")   
+
+@app.route("/educationmap")
+def ueducationMap():
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # redirect back to home page
+    return render_template("5-education-map.html")   
+
+@app.route("/incomemap")
+def incomeMap():
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # redirect back to home page
+    return render_template("9-income-map.html")   
 
 @app.route("/gdp")
 def gdp():
@@ -133,6 +160,9 @@ def aboutus():
 
 @app.route("/stocktweeter")
 def stocktweeter():
+    global ml_data
+    global data
+    global stock_data
     # execute scrape funcions
     # find and store the data in stock_info mongo db
     # stock_info = mongo.db.stock_info.find_one()
@@ -141,7 +171,7 @@ def stocktweeter():
     print(ml_data)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data[0])
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
 
 #if __name__ == "__main__":
 print("1...")
