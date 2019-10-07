@@ -7,11 +7,12 @@
   <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Unemployment Map
+    Presentation
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
     name='viewport' />
   <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
@@ -19,27 +20,6 @@
   <link href="/static/assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
   <!-- Place your kit's code here -->
   <script src="https://kit.fontawesome.com/a8c06e990a.js"></script>
-
-
-  <!--Maria's Code -->
-  <!-- Leaflet JS & CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script>
-
-  <!-- Leaflet-Parallax JS -->
-  <script type="text/javascript" src="/static/assets/js/leafletmap/leaflet-parallax.js"></script>
-
-  <!-- Javascript for leaflet slider -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="/static/assets/js/leafletmap/leaflet-timeline-slider.min.js"></script>
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="/static/assets/css/style-map.css">
 </head>
 
 <body class="">
@@ -68,7 +48,7 @@
               <p>States Economic Health</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="./map">
               <i class="far fa-cogs"></i>
               <p>Unemployment Map</p>
@@ -150,6 +130,7 @@
                     About Us
                   </p>
                   <i class="now-ui-icons users_single-02"></i>
+
                 </a>
               </li>
               <li class="nav-item dropdown">
@@ -184,16 +165,27 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title" style="text-align:center; margin:0 auto">US Unemployment Map by County (1990-2019)</h3>
+                <h3 class="card-title" style="margin:0 auto; text-align:center">
+                  <strong>Presentation</strong>
+                </h3>
               </div>
               <div class="card-body">
-                <div class="mb-4" id="map" style="height:700px"></div>
+                <div class="d-flex justify-content-center">
+                  <iframe
+                    src="https://onedrive.live.com/embed?cid=2963D7E5AF28EF0F&amp;resid=2963D7E5AF28EF0F%214885&amp;authkey=AFwlt-afCEkJAlk&amp;em=2&amp;wdAr=1.7777777777777777"
+                    width="1100px" height="700px" frameborder="0">This is an embedded <a target="_blank"
+                      href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank"
+                      href="https://office.com/webapps">Office</a>.</iframe>
+                      
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
+  </div>
   </div>
   <!--   Core JS Files   -->
   <script src="/static/assets/js/core/jquery.min.js"></script>
@@ -206,16 +198,6 @@
   <script src="/static/assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="/static/assets/js/now-ui-dashboard.min.js?v=1.3.0" type="text/javascript"></script>
-  <!-- d3 JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-  <!--Maria Contents-->
-  <!-- API key -->
-  <script type="text/javascript" src="/static/assets/js/leafletmap/config.js"></script>
-  <!-- JS  -->
-  <script type="text/javascript" src="/static/assets/js/leafletmap/UnempMap.js"></script>
-
 
 </body>
 

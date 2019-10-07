@@ -158,6 +158,22 @@ def aboutus():
     # redirect back to home page
     return render_template("7-about-us.html")
 
+@app.route("/presentation")
+def presentation():
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # redirect back to home page
+    return render_template("10-presentation.html")
+
+@app.route("/blog")
+def blog():
+    # execute scrape funcions
+    # stock_info = mongo.db.stock_info
+
+    # redirect back to home page
+    return render_template("11-blog.html")
+
 @app.route("/stocktweeter")
 def stocktweeter():
     global ml_data
