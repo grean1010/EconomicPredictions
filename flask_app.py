@@ -11,6 +11,12 @@ import multisite_scraping
 
 import os
 
+predictionImages = {
+    'N': 'http://img.clipartlook.com/smiley-face-clip-art-thumbs-up-free-clipart-images-thumb-up-clipart-800_800.png',
+    'Y': 'https://cdn.friendlystock.com/wp-content/uploads/2018/04/21-angry-poop-emoji-cartoon-clipart.jpg',
+    '?': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/225/black-question-mark-ornament_2753.png'
+              }
+
 
 print(__name__)
 # Create an instance of our Flask app.
@@ -19,6 +25,7 @@ app.secret_key = os.urandom(24)
 stock_data = {}
 ml_data = {}
 data = []
+final_prediction = [['?']]
 
 # Set route to query mongoDB and make an HTML template
 @app.route("/")
@@ -31,9 +38,11 @@ def home():
 # Create a route called /scrape
 @app.route("/scrapestock")
 def scrape():
-    global stock_data
+    global ml_data
     global data
     global stock_data
+    global predictionImages
+    # global final_prediction
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -47,13 +56,16 @@ def scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data, final_prediction = predictionImages[final_prediction[0][0]])
 
 @app.route("/multiscrape")
 def multi_scrape():
     global ml_data
     global data
     global stock_data
+    global final_prediction
+    global predictionImages
+    
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -69,7 +81,9 @@ def multi_scrape():
     ml_data = multisite_scraping.scrape_housestarts()
     ml_data = multisite_scraping.scrape_earnings()
     ml_data = ml_data[0]
-    
+    final_prediction = multisite_scraping.recession_prediction()
+
+
 
     # retrieve the value of data from session
     
@@ -78,13 +92,15 @@ def multi_scrape():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data, final_prediction = predictionImages[final_prediction[0][0]])
     # Create a route called /scrape
 @app.route("/scrapetweet")
 def scrapetweet():
     global ml_data
     global data
     global stock_data
+    global final_prediction
+    global predictionImages
     # execute scrape funcions
     # stock_info = mongo.db.stock_info
 
@@ -100,7 +116,7 @@ def scrapetweet():
     # stock_info.update({}, stock_data, upsert=True)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data, final_prediction = predictionImages[final_prediction[0][0]])
 
 @app.route("/map")
 def unemploymentMap():
@@ -179,6 +195,8 @@ def stocktweeter():
     global ml_data
     global data
     global stock_data
+    global final_prediction
+    global predictionImages
     # execute scrape funcions
     # find and store the data in stock_info mongo db
     # stock_info = mongo.db.stock_info.find_one()
@@ -187,7 +205,7 @@ def stocktweeter():
     print(ml_data)
 
     # redirect back to home page
-    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data)
+    return render_template("8-stockticker-tweeter.html", stock_info=stock_data, data=data, eco_scrape_dict=ml_data, final_prediction = predictionImages[final_prediction[0][0]])
 
 #if __name__ == "__main__":
 print("1...")

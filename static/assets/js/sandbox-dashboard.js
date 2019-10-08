@@ -473,3 +473,6 @@ console.log("...42");
 }
 
 scatterPlot();
+
+ploteverything();
+
