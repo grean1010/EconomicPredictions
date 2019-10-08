@@ -2,7 +2,12 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd
+import numpy as np
 import requests
+import tensorflow
+from tensorflow.keras.models import load_model
+from sklearn.preprocessing import LabelEncoder, MinMaxScaler
+tensorflow.keras.__version__
 import time
 
 # MAC user: 
@@ -19,6 +24,7 @@ def init_browser():
 # Create a dictionary {} to store scraped data and labels, and a list [] for just the numbers to be used in the ML model
 eco_scrape_dict = {}
 eco_scrape_list = []
+final_prediction = []
 ########################################################################################################################################
 # Scraping function to get current bond and stock pricing info
 def scrape_bonds():
@@ -61,7 +67,7 @@ def scrape_bonds():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_bonds()
+scrape_bonds()
 ########################################################################################################################################
 # Scraping function to get current federal interest rate info
 def scrape_fedrate():
@@ -94,7 +100,7 @@ def scrape_fedrate():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_fedrate()
+scrape_fedrate()
 ########################################################################################################################################
 # Scraping function to get current federal unemployment rate
 def scrape_unemployment():
@@ -126,7 +132,7 @@ def scrape_unemployment():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_unemployment()
+scrape_unemployment()
 ########################################################################################################################################
 # Scraping function to get current gold price in US dollars
 def scrape_gold():
@@ -154,7 +160,7 @@ def scrape_gold():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_gold()
+scrape_gold()
 ########################################################################################################################################
 # Scraping function to get current consumer pricing info
 def scrape_cpi():
@@ -184,7 +190,7 @@ def scrape_cpi():
     # Return results
     return eco_scrape_dict, eco_scrape_list
     
-#scrape_cpi()
+scrape_cpi()
 ########################################################################################################################################
 # Scraping function to get current federal inflation rate
 def scrape_inflation():
@@ -214,7 +220,7 @@ def scrape_inflation():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_inflation()
+scrape_inflation()
 ########################################################################################################################################
 # Scraping function to get current GDP info
 def scrape_gdp():
@@ -243,7 +249,7 @@ def scrape_gdp():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_gdp()
+scrape_gdp()
 ########################################################################################################################################
 # Scraping function to get median house sale pricing info
 def scrape_housesales():
@@ -271,7 +277,7 @@ def scrape_housesales():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_housesales()
+scrape_housesales()
 ########################################################################################################################################
 # Scraping function to get current monthly number of housing starts 
 def scrape_housestarts():
@@ -301,7 +307,7 @@ def scrape_housestarts():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_housestarts()
+scrape_housestarts()
 ########################################################################################################################################
 # Scraping function to get current earnings info
 def scrape_earnings():
@@ -334,7 +340,25 @@ def scrape_earnings():
     # Return results
     return eco_scrape_dict, eco_scrape_list
 
-#scrape_earnings()
+scrape_earnings()
 
-#print(eco_scrape_list)
+
+########################################################################################################################################
+# Scraping function to get current earnings info
+def recession_prediction():
+    recession_model = load_model("recession_model_trained.h5")
+    encoder = LabelEncoder()
+    encoder.classes_ = np.load("classes.npy", allow_pickle=True)
+    recession_model.summary()
+    var = (recession_model.predict_classes(np.array(eco_scrape_list).reshape(1, -1), verbose=1))
+    #print(var)
+    answer = encoder.inverse_transform(var)
+    #print(answer)
+    final_prediction.append(answer)
+    #return final_prediction
+
+recession_prediction()
+
+print(final_prediction[0]) 
+print(eco_scrape_list)
 #print(eco_scrape_dict)

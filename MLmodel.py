@@ -9,12 +9,15 @@ import tensorflow
 tensorflow.keras.__version__
 #pd.show_versions(as_json=False)
 
+#import pickle
+#import _pickle as cPickle
+
 # Import the data file
 economic_data = pd.read_csv('Combined_Data_Base.csv')
 
 #drop date, 30yr, gas, cars and recession2 columns
 economic_data.drop(columns = ["date", "30_yr", "gas_price", "cars_sold", "recession2"], inplace = True)
-print(economic_data.dtypes)
+#print(economic_data.dtypes)
 
 # Convert the data types to float
 economic_data[['dow_open', '13_wk', '5_yr', '10_yr', 'fed_rate', 'unemployment', 'gold_price', 'cpi', 'inflation', 'gdp', 'median_house', 'housing_starts', 'earnings_chg']] = \
@@ -24,20 +27,20 @@ economic_data[['dow_open', '13_wk', '5_yr', '10_yr', 'fed_rate', 'unemployment',
 # assign x & y
 X = economic_data.drop("recession", axis=1)
 y = economic_data["recession"]
-print(X.shape, y.shape)
+#print(X.shape, y.shape)
 
 # Additional dependencies/functions for modeling to import
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from tensorflow.keras.utils import to_categorical
 
-print(X)
-print(y)
+#print(X)
+#print(y)
 # Randomly splitting up the data set into separate training and testing data sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1, stratify=y)
 
 # Scaling the data
-print(X_train)
+#print(X_train)
 X_scaler = MinMaxScaler().fit(X_train)
 X_train_scaled = X_scaler.transform(X_train)
 X_test_scaled = X_scaler.transform(X_test)
@@ -88,9 +91,9 @@ print(f"Normal Neural Network - Loss: {model_loss}, Accuracy: {model_accuracy}")
 
 # Make predictions (display)
 encoded_predictions = model.predict_classes(X_test_scaled[:5])
-print(encoded_predictions)
+#print(encoded_predictions)
 prediction_labels = label_encoder.inverse_transform(encoded_predictions)
-print(prediction_labels)
+#print(prediction_labels)
 
 print(f"Predicted classes: {prediction_labels}")
 print(f"Actual Labels: {list(y_test[:5])}")
@@ -111,13 +114,13 @@ prediction2[:]
 print(answer2)
 
 # This imports? the scraped data list
-X_train_scaled3 = X_scaler.transform([eco_scrape_list])
-prediction3 = model.predict_classes(np.array(X_train_scaled3))
-answer3 = label_encoder.inverse_transform(prediction3)
-prediction3[:]
-print(answer3)
+#X_train_scaled3 = X_scaler.transform([eco_scrape_list])
+#prediction3 = model.predict_classes(np.array(X_train_scaled3))
+#answer3 = label_encoder.inverse_transform(prediction3)
+#prediction3[:]
+#print(answer3)
 
-
-
-
-
+# saving the trained model and exporting it for on demand recall
+#pickle.dump(model, open('model.sav', 'wb')
+model.save("recession_model_trained.h5")
+np.save('classes.npy', label_encoder.classes_)
