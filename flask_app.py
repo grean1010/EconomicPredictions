@@ -12,8 +12,8 @@ import multisite_scraping
 import os
 
 predictionImages = {
-    'N': 'http://img.clipartlook.com/smiley-face-clip-art-thumbs-up-free-clipart-images-thumb-up-clipart-800_800.png',
-    'Y': 'https://cdn.friendlystock.com/wp-content/uploads/2018/04/21-angry-poop-emoji-cartoon-clipart.jpg',
+    'N': 'http://www.i2symbol.com/pictures/emojis/f/b/7/9/fb79698acd196d5576ac2005fffe7fa3_384.png',
+    'Y': 'https://www.emojirequest.com/images/SadPoopEmoji.jpg',
     '?': 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/225/black-question-mark-ornament_2753.png'
               }
 

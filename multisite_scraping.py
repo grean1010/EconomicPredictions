@@ -347,7 +347,7 @@ def scrape_earnings():
 ########################################################################################################################################
 # Scraping function to get current earnings info
 def recession_prediction():
-    # final_prediction = []
+    #final_prediction = []
     final_prediction = ['Y']
     recession_model = load_model("recession_model_trained.h5")
     encoder = LabelEncoder()

@@ -143,5 +143,5 @@ function ploteverything() {
         return d;
     }
 };
-
+ploteverything();
  // the end
