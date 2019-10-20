@@ -10,10 +10,13 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 tensorflow.keras.__version__
 import time
 
-# MAC user: 
 #https://splinter.readthedocs.io/en/latest/drivers/chrome.html
 #!which chromedriver
+# MAC user: 
 #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+#browser = Browser('chrome', **executable_path, headless=False)
+# PC user:
+#executable_path = {'executable_path': 'chromedriver.exe}
 #browser = Browser('chrome', **executable_path, headless=False)
 
 # Initialize browser
