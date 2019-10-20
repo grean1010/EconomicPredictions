@@ -50,8 +50,10 @@ def scrape_bonds():
     bond1 = soup.find_all('div', class_='Ovx(a)')
     bond2 = bond1[0].text
     wk13 = float(bond2[81:87])
-    yr5 = float(bond2[126:132])
-    yr10 = float(bond2[172:178])
+    #yr5 = float(bond2[126:132])
+    yr5 = float(bond2[124:130])     # website changed 10/20/19, had to adjust list values
+    #yr10 = float(bond2[172:178])
+    yr10 = float(bond2[170:172])
 
     # Store data in eco_scrape_dict{}
     eco_scrape_dict['dow'] = f'Current Dow Jones Index trading volume is {dow}'
@@ -347,8 +349,8 @@ def scrape_earnings():
 ########################################################################################################################################
 # Scraping function to get current earnings info
 def recession_prediction():
-    #final_prediction = []
-    final_prediction = ['Y']
+    final_prediction = []
+    #final_prediction = ['Y']
     recession_model = load_model("recession_model_trained.h5")
     encoder = LabelEncoder()
     encoder.classes_ = np.load("classes.npy", allow_pickle=True)
